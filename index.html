@@ -5,17 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Tomohiro Career Paths</title>
+  <title>Tomohiro Career Paths v2</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="gate" class="gate-overlay">
+    <div class="gate-card">
+      <div class="gate-badge">Private preview</div>
+      <h1>Tomohiro Career Paths</h1>
+      <p class="gate-copy">簡易パスコードを入力してください。これは静的サイト用の簡易ロックです。</p>
+      <input id="passcodeInput" class="pass-input" type="password" inputmode="numeric" placeholder="Passcode" />
+      <button id="unlockBtn" class="btn primary wide">Unlock</button>
+      <p id="gateError" class="gate-error"></p>
+    </div>
+  </div>
+
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
         <div class="brand-badge"></div>
         <div>
-          <strong>Tomohiro Career Paths</strong>
-          <span>Platform builder · ENTP · 2026 ideal map</span>
+          <strong>Tomohiro Career Paths v2</strong>
+          <span>Platform builder · ENTP · private draft site</span>
         </div>
       </div>
       <div class="clock" id="clock">00:00:00 JST</div>
@@ -25,42 +36,41 @@
   <div class="subbar">
     <div class="subbar-inner">
       <div class="section-label" id="sectionLabel">Overview</div>
-      <div class="section-title" id="sectionTitle">Tomohiro’s ideal timeline as of 2026/03/16</div>
+      <div class="section-title" id="sectionTitle">Career control center</div>
       <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
     </div>
   </div>
 
   <main>
-    <section id="hero" class="hero section" data-label="Overview" data-title="Tomohiro’s ideal timeline as of 2026/03/16">
+    <section id="hero" class="hero section" data-label="Overview" data-title="Career control center">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Apple inspired career story page</div>
-          <h1><span class="gradient">Build the platform.</span><br>Shape the ecosystem.<br>Keep multiple roads open.</h1>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Apple inspired private career site</div>
+          <h1><span class="gradient">Build the platform.</span><br>Shape the ecosystem.<br>Refine the story.</h1>
           <p class="lead">
             SoftBankでのスマホ営業と新規事業、AmazonでのEasy Ship立ち上げとMarketplaceコンサル。
-            その流れは一直線ではなく、「販売チャネル」「パートナー」「プラットフォーム」をつなぐ進化でした。
-            このページは、2026年3月16日時点の理想像を、一本ではなく複数ルートで見える化したものです。
+            このv2では、経歴を読むだけではなく、更新・整理・レジュメ化までできるようにしました。
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#past">これまでの流れを見る</a>
-            <a class="btn secondary" href="#paths">未来の道筋を見る</a>
+            <a class="btn primary" href="#tabs">タブで詳細を見る</a>
+            <a class="btn secondary" href="#resume">Resume Modeを見る</a>
           </div>
 
           <div class="meta-grid">
             <div class="meta-card">
               <div class="k">Core Type</div>
               <div class="v">Platform Builder</div>
-              <div class="s">営業だけでも、コンサルだけでもなく、経済圏を設計する人材。</div>
+              <div class="s">営業だけでもコンサルだけでもなく、経済圏を設計する人材。</div>
             </div>
             <div class="meta-card">
               <div class="k">Current Edge</div>
               <div class="v">Marketplace × GTM</div>
-              <div class="s">セラー成長、カテゴリー視点、施策実装、データ活用の横断力。</div>
+              <div class="s">セラー成長、カテゴリ視点、施策実装、データ活用の横断力。</div>
             </div>
             <div class="meta-card">
               <div class="k">Ideal Direction</div>
               <div class="v">Apple class UX</div>
-              <div class="s">UI/UXを最重視しつつ、チャネルとエコシステム戦略へ拡張。</div>
+              <div class="s">UI/UXを軸に、チャネルとエコシステム戦略へ拡張。</div>
             </div>
           </div>
         </div>
@@ -71,83 +81,206 @@
       </div>
     </section>
 
-    <section id="past" class="section" data-label="Past" data-title="What has already been built">
+    <section id="tabs" class="section" data-label="Tabs" data-title="SoftBank / Amazon / Future / Resume">
       <div class="shell">
         <div class="headline">
-          <div class="sup">Past trajectory</div>
-          <h2>現場から始まり、構造に近づいてきた。</h2>
-          <p>ただ転職を重ねたのではなく、下流から上流へ、単発の営業から仕組みづくりへ、点から面へ進んでいます。ここがTomohiroさんのキャリアの芯です。</p>
+          <div class="sup">Career tabs</div>
+          <h2>時代ごとに切り替えて、詳細を深掘り。</h2>
+          <p>SoftBank時代、Amazon時代、Future、Resumeをタブで切り替えられるようにしました。</p>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3>SoftBank · Smartphone Sales Area Manager</h3>
-            <p>スマホ事業部での営業エリアマネージャー。販売現場、代理店、チャネル運用の実務理解。</p>
+        <div class="tab-shell">
+          <div class="tab-bar">
+            <button class="tab-btn active" data-tab="softbank">SoftBank</button>
+            <button class="tab-btn" data-tab="amazon">Amazon</button>
+            <button class="tab-btn" data-tab="future">Future</button>
+            <button class="tab-btn" data-tab="resume">Resume</button>
           </div>
-          <div class="timeline-item">
-            <h3>SoftBank · New Business Development</h3>
-            <p>WeWorkやCameo Japanの立ち上げ。アライアンス、事業開発、GTM設計の経験。</p>
+
+          <div class="tab-panel active" id="tab-softbank">
+            <div class="story-card">
+              <h3>SoftBank era</h3>
+              <div class="story-grid">
+                <div class="detail-card">
+                  <h4>Smartphone Sales Area Manager</h4>
+                  <p>代理店、販売現場、チャネル運用の実務理解。現場KPIとパートナーリレーションの基礎を形成。</p>
+                  <ul>
+                    <li>販売チャネル理解</li>
+                    <li>実行面の現実感</li>
+                    <li>営業現場に強い</li>
+                  </ul>
+                </div>
+                <div class="detail-card">
+                  <h4>New Business Development</h4>
+                  <p>WeWorkやCameo Japanの立ち上げ。アライアンス、GTM、パートナー戦略の経験を獲得。</p>
+                  <ul>
+                    <li>事業開発</li>
+                    <li>アライアンス</li>
+                    <li>新規立ち上げ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="timeline-item">
-            <h3>Amazon · Easy Ship</h3>
-            <p>配送・運用・制度側の立ち上げ。現場実装を伴うプラットフォーム運営経験。</p>
+
+          <div class="tab-panel" id="tab-amazon">
+            <div class="story-card">
+              <h3>Amazon era</h3>
+              <div class="story-grid">
+                <div class="detail-card">
+                  <h4>Easy Ship launch</h4>
+                  <p>配送・運用・制度側の立ち上げ。現場実装を伴うプラットフォーム運営経験。</p>
+                  <ul>
+                    <li>運用設計</li>
+                    <li>仕組みづくり</li>
+                    <li>立ち上げ経験</li>
+                  </ul>
+                </div>
+                <div class="detail-card">
+                  <h4>Merchant Consultant</h4>
+                  <p>セラー成長支援、カテゴリ戦略、JBP、分析、施策実装。より上流の構造に近い役割へ。</p>
+                  <ul>
+                    <li>Marketplace支援</li>
+                    <li>JBP / category</li>
+                    <li>growth & execution</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="timeline-item">
-            <h3>Amazon · Merchant Consultant</h3>
-            <p>セラー成長支援、カテゴリ戦略、JBP、分析、施策実装。より上流の構造に近い役割へ。</p>
+
+          <div class="tab-panel" id="tab-future">
+            <div class="story-card">
+              <h3>Future routes</h3>
+              <div class="cards">
+                <article class="card compact">
+                  <img src="assets/bigtech.png" alt="Big Tech Strategy">
+                  <div class="card-body">
+                    <div class="tag blue">Route 01</div>
+                    <h4>Big Tech strategy</h4>
+                    <p>Apple、Amazon、Google級でチャネル・カテゴリ・パートナー戦略。</p>
+                  </div>
+                </article>
+                <article class="card compact">
+                  <img src="assets/platform.png" alt="Emerging platform">
+                  <div class="card-body">
+                    <div class="tag violet">Route 02</div>
+                    <h4>Emerging platform</h4>
+                    <p>TikTok Shopなど新しいコマース基盤でカテゴリ構築やエコシステム拡大。</p>
+                  </div>
+                </article>
+                <article class="card compact">
+                  <img src="assets/vc.png" alt="Venture capital path">
+                  <div class="card-body">
+                    <div class="tag pink">Route 03</div>
+                    <h4>Venture / ecosystem</h4>
+                    <p>事業を作る側で積んだ視点を、投資や事業提携の側に移していく道。</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-resume">
+            <div class="story-card">
+              <h3>Resume snapshot</h3>
+              <p class="muted">この表示は印刷やコピペ前提で整理した簡易レジュメモードです。</p>
+              <div class="resume-box" id="resumeBox">
+                <h4>Tomohiro Shinozuka</h4>
+                <p>Platform builder with experience across channel sales, new business development, logistics platform launch, and marketplace consulting.</p>
+                <div class="resume-section">
+                  <h5>SoftBank</h5>
+                  <p>Smartphone Sales Area Manager, followed by New Business Development focused on WeWork and Cameo Japan launches.</p>
+                </div>
+                <div class="resume-section">
+                  <h5>Amazon</h5>
+                  <p>Easy Ship launch and Merchant Consultant work covering marketplace growth, JBP design, seller enablement, and category support.</p>
+                </div>
+                <div class="resume-section">
+                  <h5>Direction</h5>
+                  <p>Best aligned with channel strategy, category strategy, ecosystem design, and platform business architecture roles.</p>
+                </div>
+              </div>
+              <div class="resume-actions">
+                <button class="btn primary" id="copyResumeBtn">レジュメ本文をコピー</button>
+                <button class="btn secondary" onclick="window.print()">印刷 / PDF保存</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="paths" class="section" data-label="Future" data-title="Three credible future routes">
+    <section id="recent" class="section" data-label="Recent" data-title="Recent work notes with local save">
       <div class="shell">
         <div class="headline">
-          <div class="sup">Future options</div>
-          <h2>未来は一本ではなく、3つとも現実的。</h2>
-          <p>どれが正解というより、どの順番で近づくかの話です。今の強みを捨てずに、より上流で、より美しく、より大きく効く仕事に寄せることがテーマです。</p>
+          <div class="sup">Recent work</div>
+          <h2>最近やったことを追記して、下書きを残す。</h2>
+          <p>入力内容はこのブラウザ内に一時保存されます。サーバー保存ではありません。</p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <img src="assets/bigtech.png" alt="Big Tech Strategy">
-            <div class="card-body">
-              <div class="tag blue">Route 01</div>
-              <h3>Big Tech strategy</h3>
-              <p>Apple、Amazon、Google級で、チャネル・カテゴリ・パートナー戦略を担う道。</p>
+        <div class="editor-grid">
+          <div class="editor-card">
+            <h3>Recent work editor</h3>
+            <label class="input-label" for="recentTitle">タイトル</label>
+            <input id="recentTitle" class="text-input" type="text" placeholder="例: Seller growth project / JBP automation" />
+            <label class="input-label" for="recentNotes">本文</label>
+            <textarea id="recentNotes" class="text-area" placeholder="最近やったこと、成果、工夫したこと、数字などを書いてください。"></textarea>
+            <div class="editor-actions">
+              <button class="btn primary" id="saveRecentBtn">一時保存</button>
+              <button class="btn secondary" id="clearRecentBtn">消去</button>
+              <button class="btn secondary" id="copyPromptBtn">GPT用プロンプトをコピー</button>
             </div>
-          </article>
+            <p class="helper">GPT自動修正そのものはこの静的サイト単体ではできません。下の控えめなプロンプトをコピーしてChatGPTへ貼る運用を想定しています。</p>
+          </div>
 
-          <article class="card">
-            <img src="assets/platform.png" alt="Emerging platform">
-            <div class="card-body">
-              <div class="tag violet">Route 02</div>
-              <h3>Emerging commerce platform</h3>
-              <p>TikTok Shopなど新しいコマース基盤で、カテゴリ構築やエコシステム拡大を担う道。</p>
+          <div class="preview-card">
+            <h3>Saved preview</h3>
+            <div class="preview-box">
+              <h4 id="previewTitle">No title yet</h4>
+              <p id="previewNotes">ここに保存した内容が表示されます。</p>
             </div>
-          </article>
 
-          <article class="card">
-            <img src="assets/vc.png" alt="Venture capital path">
-            <div class="card-body">
-              <div class="tag pink">Route 03</div>
-              <h3>Venture / ecosystem investing</h3>
-              <p>事業を作る側で積んだ視点を、投資や事業提携の側に移していく道。</p>
-            </div>
-          </article>
+            <details class="prompt-details">
+              <summary>GPT support prompt</summary>
+              <textarea id="promptText" class="prompt-text" readonly>以下の「最近やったこと」の下書きを、私の職務経歴書やキャリアサイトに載せても自然な、簡潔で知的で実績が伝わる文章に修正してください。トーンはやや洗練、誇張しすぎず、具体性は残してください。必要なら、1. サイト掲載向けの短文 2. レジュメ向けの箇条書き 3. 面接で話す口頭説明 の3パターンで出してください。
+
+前提:
+- 私はプラットフォーム型ビジネス、チャネル、カテゴリ、エコシステム戦略に強みがあります
+- SoftBankではスマホ営業エリアマネージャー、新規事業開発を経験
+- AmazonではEasy Ship立ち上げ、Merchant Consultantを経験
+- UI/UXやApple的な体験価値への関心が強い
+- 誇張表現は避け、でも弱くしすぎないでください
+
+下書き:
+タイトル:
+[ここにタイトル]
+
+本文:
+[ここに本文]</textarea>
+            </details>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="ideal" class="section" data-label="Ideal" data-title="Recommended direction as of 2026/03/16">
-      <div class="shell closing">
-        <div class="quote">
-          <p>“売る人”から始まり、<br>“事業を作る人”を経て、<br>“経済圏を設計する人”へ。</p>
-          <div class="footer-note">その進み方はかなり筋が良いです。しかも、まだ複数ルートが残っています。</div>
+    <section id="resume" class="section" data-label="Resume" data-title="Resume mode and export support">
+      <div class="shell">
+        <div class="headline">
+          <div class="sup">Resume mode</div>
+          <h2>レジュメ作成の叩き台としても使える。</h2>
+          <p>Resumeタブとこのセクションを使えば、印刷・PDF保存・コピペの起点にできます。</p>
         </div>
-        <div class="recommendation">
-          <h3>Recommended arc</h3>
-          <p>いちばん綺麗なのは、Apple級の体験思想に寄せながら、カテゴリ / チャネル / エコシステム戦略へ進むこと。金融ど真ん中より、純コンサルより、「プラットフォームと体験の接点」で光るタイプです。</p>
+
+        <div class="closing">
+          <div class="quote">
+            <p>“売る人”から始まり、<br>“事業を作る人”を経て、<br>“経済圏を設計する人”へ。</p>
+            <div class="footer-note">その進み方はかなり筋が良いです。まだ複数ルートを残したまま上流へ進めます。</div>
+          </div>
+          <div class="recommendation">
+            <h3>Recommended arc</h3>
+            <p>いちばん綺麗なのは、Apple級の体験思想に寄せながら、カテゴリ / チャネル / エコシステム戦略へ進むこと。金融ど真ん中より、純コンサルより、「プラットフォームと体験の接点」で光るタイプです。</p>
+          </div>
         </div>
       </div>
     </section>
