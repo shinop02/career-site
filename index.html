@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Tomohiro Career Paths v3</title>
+  <title>Tomohiro Career Paths v4</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
     <div class="gate-panel">
       <div class="gate-kicker">Private draft</div>
       <h1>Tomohiro<br>Career Paths</h1>
-      <p>簡易パスコードを入力すると、キャリアサイト本編へ入ります。</p>
+      <p>簡易パスコードを入力すると、本編に入ります。</p>
       <div class="gate-form">
         <input id="passcodeInput" class="pass-input" type="password" inputmode="numeric" placeholder="Passcode" />
         <button id="unlockBtn" class="btn primary">Unlock</button>
@@ -57,11 +57,12 @@
             <p>
               SoftBankでの営業と新規事業、Amazonでの立ち上げとMarketplace支援。
               下流から上流へ進みながら、チャネル、エコシステム、UI/UXへの関心が一つの線になっている状態を、
-              Appleっぽい静かなトーンで再構成したページです。
+              静かで見やすいトーンで再構成したページです。
             </p>
             <div class="hero-actions">
               <a class="btn primary" href="#career">Career</a>
-              <a class="btn secondary" href="#notes">Notes</a>
+              <a class="btn secondary" href="#future">Future</a>
+              <a class="btn secondary" href="#agent">AI Agent</a>
             </div>
           </div>
           <div class="hero-visual">
@@ -70,19 +71,17 @@
         </div>
       </section>
 
-      <section id="career" class="section" data-label="Career" data-title="SoftBank / Amazon / Future / Resume">
+      <section id="career" class="section" data-label="Career" data-title="SoftBank / Amazon">
         <div class="shell">
           <div class="section-head">
-            <div class="kicker">Career view</div>
-            <h3>時代ごとに切り替えて、必要な粒度で見る。</h3>
+            <div class="kicker">Career</div>
+            <h3>時代ごとの輪郭だけ、静かに切り替える。</h3>
           </div>
 
           <div class="segment-wrap">
             <div class="segment">
               <button class="seg-btn active" data-tab="softbank">SoftBank</button>
               <button class="seg-btn" data-tab="amazon">Amazon</button>
-              <button class="seg-btn" data-tab="future">Next</button>
-              <button class="seg-btn" data-tab="resume">Resume</button>
             </div>
           </div>
 
@@ -90,7 +89,7 @@
             <div class="panel">
               <div class="panel-header">
                 <div>
-                  <div class="mini-label">2000s to 2010s foundation</div>
+                  <div class="mini-label">Foundation</div>
                   <h4>SoftBank</h4>
                 </div>
               </div>
@@ -98,7 +97,7 @@
                 <article class="info-card">
                   <div class="info-top">Area Manager</div>
                   <h5>Smartphone sales channel</h5>
-                  <p>代理店、販売現場、チャネル運用の実務理解。机上ではなく、現場の摩擦や実行難易度を知っていることが強み。</p>
+                  <p>代理店、販売現場、チャネル運用の実務理解。現場の摩擦や実行難易度を知っていることが強み。</p>
                   <ul>
                     <li>販売チャネル理解</li>
                     <li>パートナー営業</li>
@@ -151,73 +150,41 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="tab-view" id="tab-future">
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <div class="mini-label">Credible options</div>
-                  <h4>Next</h4>
-                </div>
-              </div>
-              <div class="card-grid three">
-                <article class="path-card">
-                  <img src="assets/bigtech.png" alt="Big Tech strategy" />
-                  <div class="path-body">
-                    <div class="path-tag blue">Route 01</div>
-                    <h5>Big Tech strategy</h5>
-                    <p>Apple、Amazon、Google級で、チャネル、カテゴリ、エコシステム設計に進む道。</p>
-                  </div>
-                </article>
-                <article class="path-card">
-                  <img src="assets/platform.png" alt="Emerging platform" />
-                  <div class="path-body">
-                    <div class="path-tag violet">Route 02</div>
-                    <h5>Emerging platform</h5>
-                    <p>TikTok Shopなど、新しいコマース基盤でカテゴリ構築や拡張を担う道。</p>
-                  </div>
-                </article>
-                <article class="path-card">
-                  <img src="assets/vc.png" alt="Venture / ecosystem" />
-                  <div class="path-body">
-                    <div class="path-tag pink">Route 03</div>
-                    <h5>Venture / ecosystem</h5>
-                    <p>事業を見る目を投資や事業提携の側へ移し、視点そのものを資産化する道。</p>
-                  </div>
-                </article>
-              </div>
-            </div>
+      <section id="future" class="section" data-label="Future" data-title="Credible next routes">
+        <div class="shell">
+          <div class="section-head">
+            <div class="kicker">Future</div>
+            <h3>次の道は、別セクションで落ち着いて見る。</h3>
           </div>
 
-          <div class="tab-view" id="tab-resume">
-            <div class="panel">
-              <div class="panel-header">
-                <div>
-                  <div class="mini-label">Printable mode</div>
-                  <h4>Resume</h4>
-                </div>
+          <div class="card-grid three">
+            <article class="path-card">
+              <img src="assets/bigtech.png" alt="Big Tech strategy" />
+              <div class="path-body">
+                <div class="path-tag blue">Route 01</div>
+                <h5>Big Tech strategy</h5>
+                <p>Apple、Amazon、Google級で、チャネル、カテゴリ、エコシステム設計に進む道。</p>
               </div>
-              <div class="resume-panel" id="resumeBox">
-                <h5>Tomohiro Shinozuka</h5>
-                <p>Platform oriented business builder with experience across smartphone channel sales, new business development, logistics platform launch, and marketplace consulting.</p>
-                <div class="resume-block">
-                  <strong>SoftBank</strong>
-                  <p>Smartphone sales area manager, followed by new business development focused on alliance and launch work such as WeWork and Cameo Japan.</p>
-                </div>
-                <div class="resume-block">
-                  <strong>Amazon</strong>
-                  <p>Easy Ship launch and Merchant Consultant role covering marketplace growth, JBP design, seller enablement, and category support.</p>
-                </div>
-                <div class="resume-block">
-                  <strong>Direction</strong>
-                  <p>Best aligned with channel strategy, category strategy, platform business architecture, and ecosystem design roles.</p>
-                </div>
+            </article>
+            <article class="path-card">
+              <img src="assets/platform.png" alt="Emerging platform" />
+              <div class="path-body">
+                <div class="path-tag violet">Route 02</div>
+                <h5>Emerging platform</h5>
+                <p>TikTok Shopなど、新しいコマース基盤でカテゴリ構築や拡張を担う道。</p>
               </div>
-              <div class="inline-actions">
-                <button class="btn primary" id="copyResumeBtn">Copy resume</button>
-                <button class="btn secondary" onclick="window.print()">Print / PDF</button>
+            </article>
+            <article class="path-card">
+              <img src="assets/vc.png" alt="Venture / ecosystem" />
+              <div class="path-body">
+                <div class="path-tag pink">Route 03</div>
+                <h5>Venture / ecosystem</h5>
+                <p>事業を見る目を投資や事業提携の側へ移し、視点そのものを資産化する道。</p>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -242,37 +209,92 @@
               <div class="inline-actions">
                 <button class="btn primary" id="saveRecentBtn">Save locally</button>
                 <button class="btn secondary" id="clearRecentBtn">Clear</button>
-                <button class="btn secondary" id="copyPromptBtn">Copy GPT prompt</button>
               </div>
-              <p class="quiet">
-                自動添削そのものは入れていません。代わりに、ChatGPTへ貼ると整えやすいプロンプトを下に仕込んであります。
-              </p>
+              <p class="quiet">入力内容はこのブラウザ内に一時保存されます。</p>
             </div>
 
             <div class="preview-panel">
               <div class="preview-label">Saved preview</div>
               <h4 id="previewTitle">No label yet</h4>
               <p id="previewNotes">保存した内容がここに表示されます。</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <details class="prompt-box">
-                <summary>Prompt for GPT</summary>
-                <textarea id="promptText" class="prompt-text" readonly>以下の「最近やったこと」の下書きを、私のキャリアサイトや職務経歴書に載せても自然な文章に整えてください。誇張しすぎず、でも弱くしすぎないでください。必要なら、1. サイト掲載向けの短文 2. レジュメ向けの箇条書き 3. 面接で話す口頭説明 の3パターンで出してください。
+      <section id="agent" class="section" data-label="AI Agent" data-title="Prompt builder with profile inputs">
+        <div class="shell">
+          <div class="section-head">
+            <div class="kicker">AI Agent</div>
+            <h3>個人情報を入れて、Agent向けプロンプトをそのままコピペする。</h3>
+          </div>
 
-前提:
-- 私はプラットフォーム型ビジネス、チャネル、カテゴリ、エコシステム戦略に強みがあります
-- SoftBankではスマホ営業エリアマネージャー、新規事業開発を経験
-- AmazonではEasy Ship立ち上げ、Merchant Consultantを経験
-- UI/UXやApple的な体験価値への関心が強い
-- トーンは洗練、簡潔、知的、でも気取りすぎない
-- 英語化が必要なら最後に自然な英語版も付けてください
+          <div class="agent-layout">
+            <div class="editor-panel">
+              <div class="field">
+                <label for="fullName">氏名</label>
+                <input id="fullName" type="text" class="text-input" placeholder="例: Tomohiro Shinozuka" />
+              </div>
+              <div class="field two-col">
+                <div>
+                  <label for="address">住所</label>
+                  <input id="address" type="text" class="text-input" placeholder="例: 東京都..." />
+                </div>
+                <div>
+                  <label for="phone">電話番号</label>
+                  <input id="phone" type="text" class="text-input" placeholder="例: 090..." />
+                </div>
+              </div>
+              <div class="field">
+                <label for="email">メールアドレス</label>
+                <input id="email" type="text" class="text-input" placeholder="例: example@email.com" />
+              </div>
+              <div class="field">
+                <label for="targetRole">応募先 / 役割</label>
+                <input id="targetRole" type="text" class="text-input" placeholder="例: Apple Channel Strategy / TikTok Shop Category" />
+              </div>
+              <div class="inline-actions">
+                <button class="btn primary" id="copyAgentPromptBtn">Copy agent prompt</button>
+                <button class="btn secondary" id="saveProfileBtn">Save locally</button>
+              </div>
+              <p class="quiet">この欄の入力値もブラウザ内に一時保存できます。</p>
+            </div>
 
-下書き:
-タイトル:
-[ここにタイトル]
+            <div class="preview-panel">
+              <div class="preview-label">Generated prompt</div>
+              <textarea id="agentPromptOutput" class="prompt-text large" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
 
-本文:
-[ここに本文]</textarea>
-              </details>
+      <section id="resume" class="section" data-label="Resume" data-title="Printable resume snapshot">
+        <div class="shell">
+          <div class="section-head">
+            <div class="kicker">Resume</div>
+            <h3>レジュメ用の輪郭だけ、最後に置いておく。</h3>
+          </div>
+
+          <div class="panel">
+            <div class="resume-panel" id="resumeBox">
+              <h5>Tomohiro Shinozuka</h5>
+              <p>Platform oriented business builder with experience across smartphone channel sales, new business development, logistics platform launch, and marketplace consulting.</p>
+              <div class="resume-block">
+                <strong>SoftBank</strong>
+                <p>Smartphone sales area manager, followed by new business development focused on alliance and launch work such as WeWork and Cameo Japan.</p>
+              </div>
+              <div class="resume-block">
+                <strong>Amazon</strong>
+                <p>Easy Ship launch and Merchant Consultant role covering marketplace growth, JBP design, seller enablement, and category support.</p>
+              </div>
+              <div class="resume-block">
+                <strong>Direction</strong>
+                <p>Best aligned with channel strategy, category strategy, platform business architecture, and ecosystem design roles.</p>
+              </div>
+            </div>
+            <div class="inline-actions">
+              <button class="btn primary" id="copyResumeBtn">Copy resume</button>
+              <button class="btn secondary" onclick="window.print()">Print / PDF</button>
             </div>
           </div>
         </div>
