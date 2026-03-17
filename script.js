@@ -1,24 +1,31 @@
 
 const PASSCODE = '201301';
-const gate = document.getElementById('gate');
+const gatePage = document.getElementById('gatePage');
+const siteApp = document.getElementById('siteApp');
 const passcodeInput = document.getElementById('passcodeInput');
 const unlockBtn = document.getElementById('unlockBtn');
 const gateError = document.getElementById('gateError');
 
-function unlockSite() {
-  if (passcodeInput.value === PASSCODE) {
-    sessionStorage.setItem('careerSiteUnlocked', 'true');
-    gate.style.display = 'none';
+function showSite(){
+  gatePage.classList.add('hidden');
+  siteApp.classList.remove('hidden');
+  window.scrollTo(0, 0);
+  updateSubHeader();
+}
+function unlockSite(){
+  if(passcodeInput.value === PASSCODE){
+    sessionStorage.setItem('careerSiteUnlockedV3','true');
+    showSite();
   } else {
     gateError.textContent = 'パスコードが違います。';
   }
 }
 unlockBtn.addEventListener('click', unlockSite);
-passcodeInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') unlockSite();
+passcodeInput.addEventListener('keydown', e => {
+  if(e.key === 'Enter') unlockSite();
 });
-if (sessionStorage.getItem('careerSiteUnlocked') === 'true') {
-  gate.style.display = 'none';
+if(sessionStorage.getItem('careerSiteUnlockedV3') === 'true'){
+  showSite();
 }
 
 const sections = [...document.querySelectorAll('section[data-title]')];
@@ -26,7 +33,7 @@ const sectionLabel = document.getElementById('sectionLabel');
 const sectionTitle = document.getElementById('sectionTitle');
 const progressBar = document.getElementById('progressBar');
 
-function updateClock() {
+function updateClock(){
   const now = new Date();
   const fmt = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Tokyo',
@@ -37,12 +44,13 @@ function updateClock() {
   }).format(now);
   document.getElementById('clock').textContent = fmt + ' JST';
 }
-function updateSubHeader() {
+function updateSubHeader(){
+  if(siteApp.classList.contains('hidden')) return;
   const marker = window.innerHeight * 0.33;
   let activeIndex = 0;
   sections.forEach((sec, i) => {
     const rect = sec.getBoundingClientRect();
-    if (rect.top <= marker && rect.bottom >= marker) activeIndex = i;
+    if(rect.top <= marker && rect.bottom >= marker) activeIndex = i;
   });
   const active = sections[activeIndex];
   sectionLabel.textContent = active.dataset.label || 'Section';
@@ -50,25 +58,24 @@ function updateSubHeader() {
   progressBar.style.width = (((activeIndex + 1) / sections.length) * 100) + '%';
 }
 updateClock();
-updateSubHeader();
 setInterval(updateClock, 1000);
-window.addEventListener('scroll', updateSubHeader, { passive: true });
+window.addEventListener('scroll', updateSubHeader, { passive:true });
 window.addEventListener('resize', updateSubHeader);
 
-// tabs
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
-tabButtons.forEach(btn => {
+// segmented tabs
+const segBtns = document.querySelectorAll('.seg-btn');
+const tabViews = document.querySelectorAll('.tab-view');
+segBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const tab = btn.dataset.tab;
-    tabButtons.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
+    const key = btn.dataset.tab;
+    segBtns.forEach(b => b.classList.remove('active'));
+    tabViews.forEach(v => v.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('tab-' + tab).classList.add('active');
+    document.getElementById('tab-' + key).classList.add('active');
   });
 });
 
-// local save
+// local notes
 const recentTitle = document.getElementById('recentTitle');
 const recentNotes = document.getElementById('recentNotes');
 const previewTitle = document.getElementById('previewTitle');
@@ -80,35 +87,35 @@ const copyPromptBtn = document.getElementById('copyPromptBtn');
 const copyResumeBtn = document.getElementById('copyResumeBtn');
 const resumeBox = document.getElementById('resumeBox');
 
-function renderPreview() {
-  previewTitle.textContent = recentTitle.value.trim() || 'No title yet';
-  previewNotes.textContent = recentNotes.value.trim() || 'ここに保存した内容が表示されます。';
+function renderPreview(){
+  previewTitle.textContent = recentTitle.value.trim() || 'No label yet';
+  previewNotes.textContent = recentNotes.value.trim() || '保存した内容がここに表示されます。';
 }
-function loadRecent() {
-  recentTitle.value = localStorage.getItem('recentTitle') || '';
-  recentNotes.value = localStorage.getItem('recentNotes') || '';
+function loadRecent(){
+  recentTitle.value = localStorage.getItem('recentTitleV3') || '';
+  recentNotes.value = localStorage.getItem('recentNotesV3') || '';
   renderPreview();
 }
 saveBtn.addEventListener('click', () => {
-  localStorage.setItem('recentTitle', recentTitle.value);
-  localStorage.setItem('recentNotes', recentNotes.value);
+  localStorage.setItem('recentTitleV3', recentTitle.value);
+  localStorage.setItem('recentNotesV3', recentNotes.value);
   renderPreview();
 });
 clearBtn.addEventListener('click', () => {
   recentTitle.value = '';
   recentNotes.value = '';
-  localStorage.removeItem('recentTitle');
-  localStorage.removeItem('recentNotes');
+  localStorage.removeItem('recentTitleV3');
+  localStorage.removeItem('recentNotesV3');
   renderPreview();
 });
 copyPromptBtn.addEventListener('click', async () => {
   await navigator.clipboard.writeText(promptText.value);
-  copyPromptBtn.textContent = 'コピーしました';
-  setTimeout(() => copyPromptBtn.textContent = 'GPT用プロンプトをコピー', 1400);
+  copyPromptBtn.textContent = 'Copied';
+  setTimeout(() => copyPromptBtn.textContent = 'Copy GPT prompt', 1400);
 });
 copyResumeBtn.addEventListener('click', async () => {
   await navigator.clipboard.writeText(resumeBox.innerText.trim());
-  copyResumeBtn.textContent = 'コピーしました';
-  setTimeout(() => copyResumeBtn.textContent = 'レジュメ本文をコピー', 1400);
+  copyResumeBtn.textContent = 'Copied';
+  setTimeout(() => copyResumeBtn.textContent = 'Copy resume', 1400);
 });
 loadRecent();
